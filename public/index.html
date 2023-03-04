@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Hub</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/public/img/docs.png" />
+</head>
+<body>
+
+  
+  <div id="container">
+    <span id="crumbles">/</span><br>
+    <!--
+    <form id="messageForm" action="http://127.0.0.1:8080" method="get" target="_blank">
+    
+      <textarea id="content" name="content"></textarea>
+      
+      <div class="selectContainer">
+        <div id="itemIcon"></div>
+        <select id="directories"></select>
+      </div>
+      <div id="bar-panel">
+        <div class="bar">
+          <button id="open">Open</button>
+          <button id="back" disabled="true">Back</button> 
+          <button id="save">Save</button>
+
+          <!- <input type="submit" value="Send" id="submit"> ->
+        </div>
+        <div class="bar">
+          <button id="createFile">Create File</button>
+          <button id="createDirectory">Create Directory</button>
+          <button id="deleteItem">Delete</button>
+        </div>
+      </div>
+    </form>
+-->
+  </div>
+  
+
+  <style type="text/css">
+    #container{
+      margin: 0 auto;
+      width: 70%;
+      /*max-width: 355px;*/
+    }
+    .selectContainer{
+      display: flex;
+    }
+    #directories{
+      min-width: 100px;
+      width: 90%;
+    }
+    #crumbles{
+      margin-top: 0;
+      margin-bottom: 0;
+      font-weight: bold;
+      background-color: rgba(245,245,245, 0.8);
+      border-radius: 5px;
+    }
+    
+    #content{
+      width: 100%;
+      min-width: 110px;
+      height: 150px;
+    }
+    #bar-panel{
+      text-align: center;
+    }
+    .bar{
+      display: inline-block;
+      margin-top: 10px;
+      text-align: center;
+    }
+    .bar button{
+      margin: 5px 2px 0px;
+    }
+    body{
+      height: 100%;
+      background-size: 100px;
+      background-image:  url("https://thumbs.dreamstime.com/b/%D0%B4%D0%B5%D1%82%D1%81%D1%82%D0%B2%D0%BE-%D0%B8%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2-%D0%B8%D0%B3%D1%80%D1%83%D1%88%D0%BA%D0%B8-%D1%80%D0%B5%D0%B1%D0%B5%D0%BD%D0%BE%D0%BA-%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D1%8B-%D0%B1%D0%B5%D0%B7%D1%88%D0%BE%D0%B2%D0%BD%D0%BE%D0%B5-%D0%B2%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%B0-168596844.jpg");
+      background-repeat: repeat;
+    }
+    #itemIcon{
+      display: inline-block;
+      min-width: 16px;
+      font-size: 12px;
+    }
+    #emptyIcon{
+      height: 14px;
+      margin-bottom: -2px;
+      /*filter: invert(1);*/
+    }
+  </style>
+
+ <script type="module" src="./public/scriptBetter.js"></script>
+ <!-- <script type="module" src="./script.js"></script> -->
+</body>
+</html>
