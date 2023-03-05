@@ -1,6 +1,6 @@
 import { ItemSelect, Open, Back, Save, CreateFile, CreateDirectory, Delete } from "./modules/controls.js";
 
-const theDomain = 'http://localhost:8080';
+const theDomain = 'https://eloquentfileserver.onrender.com';
 const theBaseDirectory = 'content';
 
 const buttonsInRow = 3; // decides how many buttons displayed in one bar (in one row)
