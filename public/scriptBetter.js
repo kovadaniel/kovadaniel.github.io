@@ -5,6 +5,8 @@ const theBaseDirectory = 'content';
 
 const buttonsInRow = 3; // decides how many buttons displayed in one bar (in one row)
 
+console.log("script is working");
+
 export const folderIcon = `\u{1F4C1}`; // '📁'
 export const fileIcon = '\u{1F4C4}'; // '📄'
 export const emptyIconUrl = 'https://cdn-icons-png.flaticon.com/512/2377/2377914.png'
