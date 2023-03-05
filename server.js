@@ -18,7 +18,7 @@ createServer((request, response) => {
         response.end(body);
       }
   });
-}).listen(8080);
+}).listen(80);
 
 async function notAllowed(request) {
 return {
