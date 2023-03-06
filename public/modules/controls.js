@@ -1,4 +1,4 @@
-import { folderIcon, fileIcon, emptyIconUrl } from "../scriptBetter.js";
+import { folderIcon, fileIcon, emptyIconUrl } from "../script.js";
 //-----------------------------------------------------------------
 //                  Button Handlers
 //-----------------------------------------------------------------
