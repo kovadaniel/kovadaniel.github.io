@@ -85,12 +85,12 @@ export class Open{
         ///*
         switch(state.content.type){
             case 'directory': 
-                this.dom.addEventListener("click", this.handleOpenDirectory)
-                //this.dom.disabled = false;
+                //this.dom.addEventListener("click", this.handleOpenDirectory)
+                this.dom.disabled = false;
                 break;
             default:
-                this.dom.removeEventListener("click",  this.handleOpenDirectory)
-                //this.dom.disabled = true;
+                //this.dom.removeEventListener("click",  this.handleOpenDirectory)
+                this.dom.disabled = true;
                 break;
         }
         //*/
