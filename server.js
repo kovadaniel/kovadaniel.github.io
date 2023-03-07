@@ -88,20 +88,37 @@ methods.GET = async function(request) {
   } else {
     // it's a content file request (from the folder 'content')
     let readStream = createReadStream(path);
+
+    // as we have to send the file as JSON format, we have to wrap it in JSON:
+    let startOfStream = '{"type": "file", "value": "';
+    let endOfStream = '"}';
+
+    let startNotPrepended = true; // a flag that serves to prepend startOfStream before everything else
     let wrappedStream = new Transform({
-      transform(data, encoding, callback){
-        let wrappedData = JSON.stringify({type:"file", value: data.toString()});
-        //console.log("[Transform] wrappedData:", wrappedData);
-        this.push(wrappedData);
+      transform(chunk, encoding, callback){
+        if(startNotPrepended) {
+          this.push(startOfStream); // prepending startOfStream before everything else
+          startNotPrepended = false;
+        }
+        let wrappedData = JSON.stringify([chunk.toString()]);
+        this.push(wrappedData.slice(2, -2)); // slice cuts off "{ and }" at the start and the end of every chunk 
+        callback();
+      },
+      // adds final } to the end of a sent JSON file 
+      flush(callback) {
+        this.push(endOfStream);
         callback();
       }
-    })
+    });
+    // */
     // if a readable file is empty, readStream of this file will not go through 
     // the Transform so it will not be wrapped in JSON, although the content-type 
     // of it will be 'application/json' anyway. So we chech site of the file and
     // handle empty case mannually.
-    return {body: stats.size ? readStream.pipe(wrappedStream) : JSON.stringify({type:"file", value: ''}),
-            type: 'application/json'}; // mime.getType(path)}; // 
+    return {body: stats.size ? 
+              readStream.pipe(wrappedStream) : 
+              JSON.stringify({type:"file", value: ''}),
+            type: 'application/json'};
   }
 };
 
